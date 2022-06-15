@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - property:
+      dbms: postgresql
+      name: now
+      value: current_timestamp
+  - property:
+      dbms: postgresql
+      name: uuid_function
+      value: uuid_generate_v4()
+  - changeSet:
+      id: 1
+      author: aikeda
+      changes:
+        - sqlFile:
+            dbms: postgresql
+            splitStatements: true
+            path: db/changelog/setup.sql
+            stripComments: true
